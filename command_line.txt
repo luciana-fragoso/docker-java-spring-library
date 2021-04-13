@@ -29,4 +29,6 @@ curl localhost:8080/api/library/book/listByTitle?title="Another+Old+Book"
 curl localhost:8080/api/library/book/listByAuthor?author="Pearl+S. Buck"
 curl localhost:8080/api/library/book/listByGenre?genre_id=5
 
+docker run -it -p 8080:8080 --name library-container library
+
 
