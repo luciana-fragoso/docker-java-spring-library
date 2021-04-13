@@ -1,0 +1,32 @@
+
+------ GENRE ------ 
+curl -X PUT -H "Content-Type: application/json" -d "{ \"type\": \"travel\"}" localhost:8080/api/library/genre/new
+curl localhost:8080/api/library/genre/list
+curl localhost:8080/api/library/genre/find/1
+curl -X DELETE localhost:8080/api/library/genre/delete/2
+curl -X PUT -H "Content-Type: application/json" -d "{ \"type\": \"travel\"}" localhost:8080/api/library/genre/update/3
+
+------ AUTHOR ------ 
+curl -X PUT -H "Content-Type: application/json" -d "{ \"name\": \"George Orwell\"}" localhost:8080/api/library/author/new
+curl -X PUT -H "Content-Type: application/json" -d "{ \"name\": \"Sophie Kinsella\"}" localhost:8080/api/library/author/new
+curl -X PUT -H "Content-Type: application/json" -d "{ \"name\": \"Pear S. Buck\"}" localhost:8080/api/library/author/new
+curl localhost:8080/api/library/author/list
+curl localhost:8080/api/library/author/find/2
+curl -X DELETE localhost:8080/api/library/author/delete/5
+curl -X PUT -H "Content-Type: application/json" -d "{ \"name\": \"Sophie Kinsela\"}" localhost:8080/api/library/author/update/2
+
+
+------BOOK------ 
+
+curl -X PUT -H "Content-Type: application/json" -d "{\"title\" : \"Another New Book\", \"author\" : [ {\"id\":1},{\"id\":2}], \"genre\" : {\"id\":5}}" localhost:8080/api/library/book/new
+curl -X PUT -H "Content-Type: application/json" -d "{\"title\" : \"Another Old Book 22\"}" localhost:8080/api/library/book/new
+curl localhost:8080/api/library/book/list
+curl localhost:8080/api/library/book/find/1
+curl localhost:8080/api/library/book/listByGenre/5
+curl -X DELETE localhost:8080/api/library/book/delete/2
+curl -X POST -H "Content-Type: application/json" -d "{\"title\" : \"Another Book Updated\", \"author\" : [ {\"id\":1}], \"genre\" :  {\"id\":6}}" localhost:8080/api/library/book/update/5
+curl localhost:8080/api/library/book/listByTitle?title="Another+Old+Book"
+curl localhost:8080/api/library/book/listByAuthor?author="Pearl+S. Buck"
+curl localhost:8080/api/library/book/listByGenre?genre_id=5
+
+
