@@ -8,7 +8,7 @@ curl -X PUT -H "Content-Type: application/json" -d "{ \"type\": \"travel\"}" loc
 
 ------ AUTHOR ------ 
 curl -X PUT -H "Content-Type: application/json" -d "{ \"name\": \"George Orwell\"}" localhost:8080/api/library/author/new
-curl -X PUT -H "Content-Type: application/json" -d "{ \"name\": \"Sophie Kinsella\"}" localhost:8080/api/library/author/new
+curl -X PUT -H "Content-Type: application/json" -d "{ \"name\": \"Marian Keyes\"}" localhost:8080/api/library/author/new
 curl -X PUT -H "Content-Type: application/json" -d "{ \"name\": \"Pear S. Buck\"}" localhost:8080/api/library/author/new
 curl localhost:8080/api/library/author/list
 curl localhost:8080/api/library/author/find/2
@@ -30,5 +30,8 @@ curl localhost:8080/api/library/book/listByAuthor?author="Pearl+S. Buck"
 curl localhost:8080/api/library/book/listByGenre?genre_id=5
 
 docker run -it -p 8080:8080 --name library-container library
+
+
+
 
 
