@@ -56,7 +56,7 @@ public class BookController {
     }
 
 
-
+    /*
     @GetMapping("/listByGenre")
     @ResponseStatus(HttpStatus.OK)
     public ResponseEntity<List<BookDto>> findByGenre(@RequestParam("genre_id") int genreId){
@@ -69,7 +69,7 @@ public class BookController {
     public ResponseEntity<List<BookDto>> findByAuthor(@RequestParam("author") String authorName){
         return ResponseEntity.ok(bookService.findByAuthor(authorName));
     }
-
+ */
 
 
 

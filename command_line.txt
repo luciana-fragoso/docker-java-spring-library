@@ -1,6 +1,6 @@
 
 ------ GENRE ------ 
-curl -X PUT -H "Content-Type: application/json" -d "{ \"type\": \"travel\"}" localhost:8080/api/library/genre/new
+curl -X PUT -H "Content-Type: application/json" -d "{ \"type\": \"health\"}" localhost:8080/api/library/genre/new
 curl localhost:8080/api/library/genre/list
 curl localhost:8080/api/library/genre/find/1
 curl -X DELETE localhost:8080/api/library/genre/delete/2
@@ -30,6 +30,10 @@ curl localhost:8080/api/library/book/listByAuthor?author="Pearl+S. Buck"
 curl localhost:8080/api/library/book/listByGenre?genre_id=5
 
 docker run -it -p 8080:8080 --name library-container library
+
+
+
+https://www.dailysmarty.com/posts/steps-for-deploying-a-static-html-site-with-docker-and-nginx
 
 
 

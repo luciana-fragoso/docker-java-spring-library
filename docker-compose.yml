@@ -1,21 +1,45 @@
-version: '3'
+version: '2'
 
 services:
-  docker-mysql:
-    image: mysql:5.7
-    environment:
-      - MYSQL_ROOT_PASSWORD=root
-      - MYSQL_DATABASE=library
-      - MYSQL_USER=root
-      - MYSQL_PASSWORD=root
-    ports:
-      - 3306:3306
-
   app:
+    build: .
     image: library:latest
+    #    container_name: library-dev
     ports:
-      - 8091:8091
-
-
+      - '9090:8080'
     depends_on:
-      - docker-mysql
+      - mysql
+    networks:
+      - vlan_database
+
+  mysql:
+#    container_name: mysql-dev
+    restart: always
+    image: mysql:5.7
+    command: --init-file /data/application/init.sql
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD}
+      MYSQL_USER: ${DB_USER}
+      MYSQL_PASS: ${DB_PASSWORD}
+    ports:
+      - '3306:3306'
+    volumes:
+      - ./.mysqlData:/var/lib/mysql
+      - ./init.sql:/data/application/init.sql
+    networks:
+      - vlan_database
+
+  pma:
+    image: phpmyadmin/phpmyadmin
+#    container_name: phpmyadmin-dev
+    environment:
+      PMA_HOST: 'mysql'
+      PMA_PORT: 3306
+      MYSQL_ROOT_PASSWORD: root
+    ports:
+      - 80:80
+    networks:
+      - vlan_database
+
+networks:
+  vlan_database:
