@@ -76,14 +76,14 @@ public class BookService {
       //  bookRepository.save(new Book(id,bookDto.getTitle(),bookDto.getAuthor(),bookDto.getGenre()));
 
     }
-    /*
+
     public List<BookDto> findByGenre(int id) {
         return booksMapper(bookRepository.findByGenre(id));
     }
     public List<BookDto> findByAuthor(String author){
         return booksMapper(bookRepository.findByAuthor(author));
     }
-    */
+
 
 }
 
